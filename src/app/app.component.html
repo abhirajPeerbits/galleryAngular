@@ -1,0 +1,58 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  
+</div>
+<h2>Here are some links to help you start: </h2>
+
+<h1>hi</h1>
+<ng-template #content let-modal>
+  <div class="modal-header abhiraj">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>hi</p>
+    
+    <ngx-gallery [options]="galleryOptions" [images]="images"  download ></ngx-gallery>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+
+<!-- <ngx-gallery [options]="galleryOptions" [images]="images" download></ngx-gallery> -->
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+    <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="gallery-title">Gallery</h1>
+    </div>
+
+    
+    <br/>
+
+
+
+        <div   *ngFor="let image of allUrl;let i = index"   class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+           
+          <img [src]="image.url" class="img-responsive"  (click)="open(content);getId(i)">
+
+        </div>
+
+       
+    </div>
+</div>
+
+<router-outlet></router-outlet>
